@@ -10,7 +10,7 @@ let checkButton = document.querySelector(".check");
 let guess = document.querySelector(".guess");
 let mainNumber = document.querySelector(".number");
 let body = document.querySelector("body");
-let highScoreElement = document.querySelector(".highScore");
+let highScoreElement = document.querySelector(".highscore"); // Changed from .highScore to .highscore
 let scoreElement = document.querySelector(".score");
 let again = document.querySelector(".again");
 
@@ -18,9 +18,8 @@ checkButton.addEventListener("click", function () {
     let userGuess = Number(guess.value);
     if (!userGuess) {
         displayMessage("No number");
-    }
-    if (userGuess > 20) {
-        displayMessage("Please enter a number below 20");
+    } else if (userGuess > 20 || userGuess < 1) {
+        displayMessage("Please enter a number between 1 and 20");
     } else {
         if (userGuess === secretNumber) {
             displayMessage("Correct Number");
